@@ -7,7 +7,14 @@ const port = process.env.PORT || 4000;
 //middlewares
 app.use(express.json())
 const cors = require('cors')
-app.use(cors())
+app.use(cors({
+  origin: [
+    "https://dailycrave-userfrontend.onrender.com",
+    "https://dailycrave-adminfrontend-d4kv.onrender.com"
+  ],
+  credentials: true
+}));
+
 require('dotenv').config()
 app.use("/image",express.static('uploads'))
 
